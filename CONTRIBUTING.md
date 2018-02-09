@@ -12,7 +12,7 @@ and reviews of proposed changes are all welcome.
 By contributing,
 you agree that we may redistribute your work under our license.
 In exchange, we will address your issues and/or assess your change proposal as promptly as we can.  
-Everyone involved in the development of Karl agrees to abide by our [code of conduct](CONDUCT.md).
+Everyone involved in the development of Pythia agrees to abide by our [code of conduct](CONDUCT.md).
 
 ## How to Contribute
 
@@ -35,7 +35,7 @@ about things that don't work, aren't clear, or are missing.
 
 Comments on issues and reviews of pull requests are welcomed:
 we are smarter together than we are on our own.   
-Feedback is appreciated and encouraged as Karl is continually evolving to better serve the community.
+Feedback is appreciated and encouraged as Pythia is continually evolving to better serve the community.
 
 
 
