@@ -1,0 +1,4 @@
+include *.md
+setup.py
+include pythia_ubc\*.py
+include pythia_ubc\test\test*.py
