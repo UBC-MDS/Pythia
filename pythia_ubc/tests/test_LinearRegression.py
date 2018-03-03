@@ -3,11 +3,13 @@
 #
 # This script test the methods from the LinearRegression.py script.
 
+import pytest
+import pythia_ubc
+
 ## Packages
 import numpy as np
 import numpy.random as rand
 import pandas as pd
-
 
 ### Test simple linear regression for a continuous feature
 def test_LinearRegression1():
