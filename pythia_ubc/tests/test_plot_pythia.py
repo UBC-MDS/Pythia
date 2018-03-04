@@ -38,10 +38,10 @@ def test_plot_pythia():
     plot_out = plt.show()
 
     # Expected input
-    assert type(lm) == "pythia_ubc.LinearRegression",
+    assert type(lm) == "pythia_ubc.LinearRegression", # Tests to see if plot input is the right type.
 
     # Expected output
-    assert plot_pythia(lm) == type(plot_out), "Plot is NoneType",
-    assert type(scatter_plot) == "pythia_ubc.PathCollection",
-    assert type(plt_plot) == "list",
+    assert plot_pythia(lm) == type(plot_out), "Plot is NoneType", # Tests to see if plot output object is the right type
+    assert type(scatter_plot) == "pythia_ubc.PathCollection", # Tests to see if the plot is the right type
+    assert type(plt_plot) == "list", # Tests to see if the multi-plot is the right type
     
