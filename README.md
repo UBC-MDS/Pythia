@@ -11,9 +11,11 @@ This package will take a dataset with a continuous reponse variable and various 
 
 ## Functions:  
 #### Summary of Data: (input: X, y)    
-This function will return a table containing various statistics from the provided dataset. These statistics include the mean, variance, quantile for continuous variables, mode, number of levels (for categorical data), etc. 
+
+This function will return a table containing various statistics from the provided dataset. These statistics include the mean, variance, minimum, maximum and quantile (25, 50 and 75) values for continuous variables.
 
 #### Model Fit: (input: X, y)  
+
 This function will return the model object containing the coefficients for the linear model, corresponding p-value, and confidence interval.
 
 #### Residual Plot: (input: Model Object) 
