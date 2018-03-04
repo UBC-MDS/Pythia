@@ -36,6 +36,19 @@ class LinearRegression:
     
     def plot_residuals(self):
         """
+        This script makes various diagnostic plots for linear regression analysis.
+        It supports a continuous response and several continuous features.
+
+        Args:
+            A LinearRegression object containing
+                weights: the estimates of the parameters of the linear regression
+                fitted: the fitted values
+                residuals: the residuals.
+
+        Returns:
+            Residuals vs Fitted Plot
+            Normal Q-Q Plot
+            Fitted vs True Value Plot(s)
         """
         pass
     
