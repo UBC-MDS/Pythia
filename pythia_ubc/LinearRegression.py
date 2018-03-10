@@ -52,14 +52,14 @@ class LinearRegression:
         
         # The gradient of the squared error
         def ols_grad(w):
-            return np.dot(np.transpose(X_mat), np.dot(X_mat, weights) - y)
-      
+            return np.dot(np.transpose(X_mat), np.dot(X_mat, w) - y)
+        
         # A norm function for Frobenius
         def norm(x):
             return np.sum(np.abs(x))
     
         # Update the weights using gradient method
-        weights = np.zeros(d)
+        weights = np.transpose(np.matrix(np.zeros(d)))
         i = 0
         grad = ols_grad(weights)
         while i < n_iter and norm(grad) > 1e-7:
