@@ -11,6 +11,8 @@
 # Usage: 
 
 ## Imports
+import pandas as pd
+import numpy as np
 
 ## The LinearRegression class
 class LinearRegression:
@@ -32,7 +34,50 @@ class LinearRegression:
     """ 
     
     def __init__(self, X, y):
-        pass
+        # Check the type of the features and select the numeric ones
+        X_mat = X.select_dtypes(include=[np.number], exclude=None)
+        if X_mat.shape[1] == 0:
+            raise NameError("You need at least one continuous features")
+        
+        # Add an intercept column and convert the data frame in a matrix
+        n = X_mat.shape[0]
+        X_mat['intercept'] = pd.Series(np.ones(n), index=X_mat.index)
+        names = X_mat.columns
+        X_mat = X_mat.as_matrix()
+        d = X_mat.shape[1]
+        
+        # Set hyperparameters
+        alpha = 0.001
+        n_iter = 1000000
+        
+        # The gradient of the squared error
+        def ols_grad(w):
+            return np.dot(np.transpose(X_mat), np.dot(X_mat, weights) - y)
+      
+        # A norm function for Frobenius
+        def norm(x):
+            return np.sum(np.abs(x))
+    
+        # Update the weights using gradient method
+        weights = np.zeros(d)
+        i = 0
+        grad = ols_grad(weights)
+        while i < n_iter and norm(grad) > 1e-7:
+            grad = ols_grad(weights)
+            weights = weights - alpha*grad
+            i += 1
+        
+        temp = {}
+        for i in range(len(weights)):
+            temp[names[i]] = weights[i]
+        self.weights = temp
+        
+        # Calculate the fitted values
+        self.fitted = np.dot(X_mat, weights)
+      
+        # Calculate the residuals
+        self.residuals = y - self.fitted
+      
     
     def plot_residuals(self):
         """
