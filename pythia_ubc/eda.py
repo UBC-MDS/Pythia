@@ -78,4 +78,17 @@ def eda(X):
         |   X2  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
         |   X3  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
     """
-    pass
+    allData = pd.concat([y.reset_index(drop=True), X], axis=1)
+    allData.rename({0: 'y'})
+
+    summary = pd.DataFrame({
+    'mean': allData.mean(axis=0),
+    'var': allData.var(axis=0),
+    'min': allData.min(axis=0),
+    'quantile25': allData.quantile(.25),
+    'quantile50': allData.quantile(.50),
+    'quantile75': allData.quantile(.75),
+    'max': allData.max(axis=0)
+    })
+
+    return summary
