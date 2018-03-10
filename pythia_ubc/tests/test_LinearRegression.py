@@ -69,6 +69,3 @@ def test_LinearRegression2():
     assert model.weights == beta, "The coefficients are wrong"
     assert model.fitted == fitted, "The fitted values are wrong"
     assert model.residuals == res, "The residuals are wrong"
-
-
-### Test the plot residuals function
