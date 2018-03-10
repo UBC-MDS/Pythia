@@ -13,6 +13,8 @@
 ## Imports
 import pandas as pd
 import numpy as np
+import numpy.random as random
+import matplotlib.pyplot as plt
 
 ## The LinearRegression class
 class LinearRegression:
@@ -93,7 +95,45 @@ class LinearRegression:
         Returns:
             Residuals vs Fitted Plot
             Normal Q-Q Plot
-            Fitted vs True Value Plot(s)
         """
-        pass
+        
+        assert len(self.residuals) > 0, "There are no residuals"
+        assert len(self.fitted) > 0, "There are no fitted values"
+        assert len(self.residuals) == len(self.fitted), "The number of residuals and fitted values do not match"
+        
+        # Get fitted values and residuals
+        residuals = self.residuals
+        fitted = self.fitted
+        
+        # Fitted vs Residuals
+        plt.figure(figsize=(10,6))
+        plt.scatter(fitted, residuals,  color='grey')
+        plt.axhline(y = 0, linewidth = 1, color = 'red')
+        plt.xlabel('Fitted Values')
+        plt.ylabel('Residuals')
+        plt.title('Residuals vs. Fitted Values')
+        resfit = plt.show()
+        
+        # Normal QQ Plot
+        res = np.asarray(residuals)
+        res.sort()
+        
+        # Generate normal distribution
+        ndist = random.normal(loc = 0, scale = 1, size = len(res))
+        ndist.sort()
+
+        # Fit Normal Trendline.  
+        fit = np.polyfit(ndist, res, 1)
+        func = np.poly1d(fit)
+        trendline_y = func(ndist)
+
+        plt.figure(figsize=(10,6)) 
+        plt.scatter(ndist, res, color = 'grey')
+        plt.plot(ndist, trendline_y, color = 'red')
+        plt.title("Normal QQ Plot")
+        plt.xlabel("Theoretical quantiles")
+        plt.ylabel("Expreimental quantiles")
+        qqplot = plt.show()
+        
+        return
     
