@@ -34,14 +34,13 @@ class LinearRegression:
     """ 
     
     def __init__(self, X, y):
-        # # Check the type of the features and select the numeric ones
-        # cols = (sapply(X, typeof) %in% c('double', 'integer', 'numeric'))
-        # X_mat = X %>% select(names(X)[cols])
-        # if (sum(cols) > 0) {stop("You need at least one continuous features")}
+        # Check the type of the features and select the numeric ones
+        X_mat = X.select_dtypes(include=[np.number], exclude=None)
+        if X_mat.shape[1] == 0:
+            raise NameError("You need at least one continuous features")
         
         # Add an intercept column and convert the data frame in a matrix
-        n = X.shape[0]
-        X_mat = X.copy(deep=True)
+        n = X_mat.shape[0]
         X_mat['intercept'] = pd.Series(np.ones(n), index=X_mat.index)
         names = X_mat.columns
         X_mat = X_mat.as_matrix()
