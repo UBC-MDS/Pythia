@@ -63,6 +63,14 @@ X = pd.DataFrame({'ones': np.ones(10),
 y = pd.DataFrame({X.X1 + X.X2 + X.X3 + rand.normal(size=10)})
 EDA(X,y)
 ```
+Expected Output: 
+
+|       | mean  | variance | min | quantile25 | quantile50 | quantile75 | max |
+|-------|-------|----------|-----|------------|------------|------------|-----|
+|   y   |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
+|   X1  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
+|   X2  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
+|   X3  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
 
 #### Model Fit: `LinearRegression(X, y)` 
 
@@ -89,15 +97,6 @@ X = pd.DataFrame({'X1': np.random.normal(size=10),
 y = X.X1 + X.X2 + X.X3 + np.random.normal(size=10)
 LinearRegression(X, y)
 ```
-
-Expected Output: 
-
-|       | mean  | variance | min | quantile25 | quantile50 | quantile75 | max |
-|-------|-------|----------|-----|------------|------------|------------|-----|
-|   y   |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
-|   X1  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
-|   X2  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
-|   X3  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
 
 #### Residual Plot: `plot_residuals((input: Model Object))` 
 
