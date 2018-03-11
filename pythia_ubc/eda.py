@@ -25,7 +25,7 @@ import numpy as np
 import pandas as pd
 #
 # eda (explanatory data analysis) summary function:
-def eda(X):
+def eda(X,y):
     """
     eda(X,y)
 
