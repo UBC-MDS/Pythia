@@ -25,7 +25,7 @@ import numpy as np
 import pandas as pd
 #
 # eda (explanatory data analysis) summary function:
-def eda(X):
+def eda(X,y):
     """
     eda(X,y)
 
@@ -59,8 +59,7 @@ def eda(X):
 
         # create a mock dataframe to exemplify the usage and results
 
-        X = pd.DataFrame({'ones': np.ones(10),
-                          'X1': rand.normal(size=10),
+        X = pd.DataFrame({'X1': rand.normal(size=10),
                           'X2': rand.normal(size=10),
                           'X3': rand.normal(size=10)})
         y = pd.DataFrame({X.X1 + X.X2 + X.X3 + rand.normal(size=10)})
@@ -85,7 +84,7 @@ def eda(X):
 
     # Test the type of the input
     assert isinstance(X, pd.DataFrame) == True, "The features(X) doesn't have the right type"
-    assert isinstance(y, pd.Series) == True, "The response(y) don't have the right type"
+    assert isinstance(y, pd.DataFrame) == True, "The response(y) don't have the right type"
 
     # Check the type of the features and select the numeric ones to summarize
     X = X.select_dtypes(include=[np.number], exclude=None)
@@ -97,7 +96,7 @@ def eda(X):
 
     summary = pd.DataFrame({
     'mean': allData.mean(axis=0),
-    'var': allData.var(axis=0),
+    'variance': allData.var(axis=0),
     'min': allData.min(axis=0),
     'quantile25': allData.quantile(.25),
     'quantile50': allData.quantile(.50),
