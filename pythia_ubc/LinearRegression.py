@@ -135,5 +135,5 @@ class LinearRegression:
         plt.ylabel("Expreimental quantiles")
         qqplot = plt.show()
         
-        return
+        return (resfit,qqplot)
     
