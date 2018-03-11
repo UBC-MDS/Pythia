@@ -45,6 +45,7 @@ class LinearRegression:
         names = X_mat.columns
         X_mat = X_mat.as_matrix()
         d = X_mat.shape[1]
+        y = np.array(y).reshape((10,1))
         
         # Set hyperparameters
         alpha = 0.001
@@ -59,7 +60,7 @@ class LinearRegression:
             return np.sum(np.abs(x))
     
         # Update the weights using gradient method
-        weights = np.transpose(np.matrix(np.zeros(d)))
+        weights = np.zeros(d).reshape((d,1))
         i = 0
         grad = ols_grad(weights)
         while i < n_iter and norm(grad) > 1e-7:
@@ -69,7 +70,7 @@ class LinearRegression:
         
         temp = {}
         for i in range(len(weights)):
-            temp[names[i]] = weights[i]
+            temp[names[i]] = weights[i,0]
         self.weights = temp
         
         # Calculate the fitted values
