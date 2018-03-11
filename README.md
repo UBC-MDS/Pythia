@@ -30,3 +30,83 @@ The model fit function works similarly to LinearRegression.fit function from the
 
 The residual plot function is a method for the model class that returns two plots specific to the residual. There are functions that exist to plot both the residual-fitted plot and the QQ-plot, however the function from the Karl package combines these two plots in one function, displaying both plots in tandem. 
 
+## Installation:
+To install Pythia, follow these instructions:  
+1. Input the following into the Terminal: `pip install git+https://github.com/UBC-MDS/Pythia.git`  
+2. You're ready to start using `Pythia`!
+
+## Usage:
+#### Summary of Data: `EDA(X, y)`   
+This function will return a table containing various statistics from the provided dataset. These statistics include the mean, variance, minimum, maximum and quantile (25, 50 and 75) values for continuous variables.
+
+Arguments:
+
+  - X: a dataframe containing continuous features
+  - y: a numeric vector of same length containing the response
+
+Values: a dataframe containing 
+
+  - mean: the mean for response (y) and features (X)
+  - variance: the variance for response (y) and features (X)
+  - quantiles: the 25-50-75 quantiles for response (y) and features (X)
+  - min: the minimum value for response (y) and features (X)
+  - max: the maximum value for response (y) and features (X)
+  
+Usage: 
+
+```
+import pythia_ubc
+EDA(X,y)
+```
+
+#### Model Fit: `LinearRegression(X, y)` 
+
+ This function returns a method object containing the weights, fitted values, and residuals from fitting a linear regression of y on X.
+ 
+Arguments:
+ 
+   - X: a pandas.dataframe containing continuous variables 
+   - y: a pandas.Series of same length containing the response
+
+Values: a class method containing:
+
+  - weights: a pandas.Series, the estimated coefficients
+  - fitted: a pandas.Series, the fitted values
+  - residuals: a pandas.Series, the residuals
+
+Usage:
+
+```
+import pythia_ubc
+X = pd.DataFrame({'X1': np.random.normal(size=10), 
+                  'X2': np.random.normal(size=10),
+                    'X3': np.random.normal(size=10)})
+y = X.X1 + X.X2 + X.X3 + np.random.normal(size=10)
+LinearRegression(X, y)
+```
+
+#### Residual Plot: `plot_residuals((input: Model Object))` 
+
+This function is used to plot the linear model object from the LinearRegression class. The linear model object is a method that includes weights, fitted values, and residuals. This function will return 2 types of plots, which include:
+
+  - Residuals vs Fitted Plot
+  - Normal Q-Q Plot
+
+Arguments:
+
+  - lm object: a list of lists containing:
+  	- fitted: the fitted values
+  	- residuals: the residuals.
+
+Value:
+
+  - Residuals vs Fitted Plot
+  - Normal Q-Q Plot
+  
+Usage:
+
+```
+import pythia_ubc
+lm = LinearRegression(X, y)
+plot_residuals(lm)
+```
