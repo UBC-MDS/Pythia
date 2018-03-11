@@ -41,8 +41,8 @@ This function will return a table containing various statistics from the provide
 
 Arguments:
 
-  - X: a dataframe containing continuous features
-  - y: a numeric vector of same length containing the response
+   - X: a pandas.dataframe containing continuous variables 
+   - y: a pandas.Series of same length containing the response
 
 Values: a dataframe containing 
 
@@ -56,6 +56,11 @@ Usage:
 
 ```
 import pythia_ubc
+X = pd.DataFrame({'ones': np.ones(10),
+                  'X1': rand.normal(size=10),
+                  'X2': rand.normal(size=10),
+                  'X3': rand.normal(size=10)})
+y = pd.DataFrame({X.X1 + X.X2 + X.X3 + rand.normal(size=10)})
 EDA(X,y)
 ```
 
@@ -80,10 +85,19 @@ Usage:
 import pythia_ubc
 X = pd.DataFrame({'X1': np.random.normal(size=10), 
                   'X2': np.random.normal(size=10),
-                    'X3': np.random.normal(size=10)})
+                  'X3': np.random.normal(size=10)})
 y = X.X1 + X.X2 + X.X3 + np.random.normal(size=10)
 LinearRegression(X, y)
 ```
+
+Expected Output: 
+
+|       | mean  | variance | min | quantile25 | quantile50 | quantile75 | max |
+|-------|-------|----------|-----|------------|------------|------------|-----|
+|   y   |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
+|   X1  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
+|   X2  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
+|   X3  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
 
 #### Residual Plot: `plot_residuals((input: Model Object))` 
 

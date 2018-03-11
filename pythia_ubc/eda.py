@@ -34,8 +34,8 @@ def eda(X):
     variance, min, max and quantiles for each variables in the dataset
 
     Args:
-        X: a dataframe containing continuous features
-        y: a numeric vector of same length containing the response
+        X: a pandas.dataframe containing continuous variables (including the response)
+        y: a pandas.dataframe vector (a pandas.Series) of same length containing the response
 
     Attributes: a dataframe containing
         mean: the mean for response (y) and features (X)
@@ -63,7 +63,7 @@ def eda(X):
                           'X1': rand.normal(size=10),
                           'X2': rand.normal(size=10),
                           'X3': rand.normal(size=10)})
-        y = X.X1 + X.X2 + X.X3 + rand.normal(size=10)
+        y = pd.DataFrame({X.X1 + X.X2 + X.X3 + rand.normal(size=10)})
 
         # get EDA summary for the data:
 
@@ -78,6 +78,20 @@ def eda(X):
         |   X2  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
         |   X3  |   ... |  ...     | ... |    ...     |     ...    |     ...    | ... |
     """
+
+    assert len(X) > 0, "There are no values in features"
+    assert len(y) > 0, "There are no values in response"
+    assert len(X) == len(y), "Length oh response and features does not match"
+
+    # Test the type of the input
+    assert isinstance(X, pd.DataFrame) == True, "The features(X) doesn't have the right type"
+    assert isinstance(y, pd.Series) == True, "The response(y) don't have the right type"
+
+    # Check the type of the features and select the numeric ones to summarize
+    X = X.select_dtypes(include=[np.number], exclude=None)
+    if X.shape[1] == 0:
+        raise NameError("You do not have any continuous features to summarize")
+
     allData = pd.concat([y.reset_index(drop=True), X], axis=1)
     allData.rename({0: 'y'})
 
