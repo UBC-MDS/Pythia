@@ -59,8 +59,7 @@ def eda(X,y):
 
         # create a mock dataframe to exemplify the usage and results
 
-        X = pd.DataFrame({'ones': np.ones(10),
-                          'X1': rand.normal(size=10),
+        X = pd.DataFrame({'X1': rand.normal(size=10),
                           'X2': rand.normal(size=10),
                           'X3': rand.normal(size=10)})
         y = pd.DataFrame({X.X1 + X.X2 + X.X3 + rand.normal(size=10)})
