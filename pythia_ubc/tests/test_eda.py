@@ -15,11 +15,10 @@ import pandas as pd
 def test_eda():
     # Generate small data to test our function
     rand.seed(4)
-    X = pd.DataFrame({'ones': np.ones(10),
-                      'X1': rand.normal(size=10),
+    X = pd.DataFrame({'X1': rand.normal(size=10),
                       'X2': rand.normal(size=10),
                       'X3': rand.normal(size=10)})
-    y = X.X1 + X.X2 + X.X3 + rand.normal(size=10)
+    y =pd.DataFrame({ X.X1 + X.X2 + X.X3 + rand.normal(size=10)})
 
     # get EDA summary for the data
     summary = eda(X, y)
@@ -70,6 +69,10 @@ def test_eda():
     X2_max = np.percentile(X.X2, 100)
     X3_max = np.percentile(X.X3, 100)
     y_max = np.percentile(y, 100)
+
+    # Test the type of the input
+    assert isinstance(X, pd.DataFrame) == True, "The features(X) doesn't have the right type"
+    assert isinstance(y, pd.DataFrame) == True, "The response(y) don't have the right type"
 
     # Test the type of the output
     assert isinstance(summary, pythia_ubc.eda) == True, "The model doesn't have the right type"
