@@ -85,7 +85,7 @@ def eda(X,y):
 
     # Test the type of the input
     assert isinstance(X, pd.DataFrame) == True, "The features(X) doesn't have the right type"
-    assert isinstance(y, pd.Series) == True, "The response(y) don't have the right type"
+    assert isinstance(y, pd.DataFrame) == True, "The response(y) don't have the right type"
 
     # Check the type of the features and select the numeric ones to summarize
     X = X.select_dtypes(include=[np.number], exclude=None)
@@ -97,7 +97,7 @@ def eda(X,y):
 
     summary = pd.DataFrame({
     'mean': allData.mean(axis=0),
-    'var': allData.var(axis=0),
+    'variance': allData.var(axis=0),
     'min': allData.min(axis=0),
     'quantile25': allData.quantile(.25),
     'quantile50': allData.quantile(.50),
