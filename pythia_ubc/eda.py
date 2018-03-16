@@ -80,7 +80,7 @@ def eda(X,y):
 
     assert len(X) > 0, "There are no values in features"
     assert len(y) > 0, "There are no values in response"
-    assert len(X) == len(y), "Length oh response and features does not match"
+    assert len(X) == len(y), "Length of response and features does not match"
 
     # Test the type of the input
     assert isinstance(X, pd.DataFrame) == True, "The features(X) doesn't have the right type"
