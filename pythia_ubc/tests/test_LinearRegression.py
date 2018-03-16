@@ -4,7 +4,7 @@
 # This script test the methods from the LinearRegression.py script.
 
 import pytest
-import pythia_ubc
+from pythia_ubc.LinearRegression import LinearRegression
 
 ## Packages
 import numpy as np
