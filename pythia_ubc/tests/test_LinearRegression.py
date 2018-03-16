@@ -117,9 +117,30 @@ def test_LinearRegression3():
     assert all(np.around(model.fitted, 5) == np.around(np.array(fit).reshape((10,1)), 5)), "The fitted values are wrong"
     assert all(np.around(model.residuals, 5) == np.around(np.array(res).reshape((10,1)), 5)), "The residuals are wrong"
 
-    
-### Test error when there is no numeric feature
+
+### Test multi-linear regression with missing values
 def test_LinearRegression4():
+    # Generate small data to test our function
+    rand.seed(4)
+    X = pd.DataFrame({'X1': rand.normal(size=10), 
+                      'X2': rand.normal(size=10), 
+                      'X3': rand.normal(size=10)})
+    y = X.X1 + X.X2 + X.X3 + rand.normal(size=10)
+    
+    # Add some missing values
+    X.X1[3] = None
+    X.X3[5] = None
+    
+    try:
+        LinearRegression(X, y)
+    except NameError:
+        assert True
+    else:
+        assert False
+
+
+### Test error when there is no numeric feature
+def test_LinearRegression5():
     # Generate small data to test our function
     X = pd.DataFrame({'char': [ascii_letters[i] for i in range(10)]})
     y = range(10)
