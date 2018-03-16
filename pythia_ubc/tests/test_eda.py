@@ -4,7 +4,6 @@
 # This script test the summary function from eda.py.
 
 import pytest
-import pythia_ubc
 from pythia_ubc.eda import eda
 
 ## Packages
@@ -135,7 +134,7 @@ def test_eda():
 def test_eda2():
     # Data for the error case:
     X = "aString"
-    y = pd.DataFrame({'y': rand.normal(size=10))
+    y = pd.DataFrame({'y': rand.normal(size=10)})
 
     try:
         eda(X, y)
@@ -146,7 +145,7 @@ def test_eda2():
 
 def test_eda3():
     # Data for the error case:
-    X = pd.DataFrame({'X1': rand.normal(size=10)
+    X = pd.DataFrame({'X1': rand.normal(size=10)})
     y = "notDataframe"
 
     try:
