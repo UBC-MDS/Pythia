@@ -5,6 +5,7 @@
 
 import pytest
 import pythia_ubc
+from pythia_ubc.eda import eda
 
 ## Packages
 import numpy as np
