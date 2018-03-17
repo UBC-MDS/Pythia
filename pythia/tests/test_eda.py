@@ -4,7 +4,7 @@
 # This script test the summary function from eda.py.
 
 import pytest
-from pythia_ubc.eda import eda
+from pythia.eda import eda
 
 ## Packages
 import numpy as np

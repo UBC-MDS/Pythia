@@ -4,7 +4,7 @@
 # This script test the plot_residuals function from the LinearRegression.py script.
 
 import pytest
-import pythia_ubc
+from pythia.LinearRegression import LinearRegression
 
 import matplotlib.pyplot as plt
 import pandas as pd
