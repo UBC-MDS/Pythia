@@ -11,12 +11,15 @@
 # Usage:
 
 ## Imports
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 import sys
 import os
 sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath("../"))
 
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import numpy.random as random
