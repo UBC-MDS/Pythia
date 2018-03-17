@@ -3,7 +3,7 @@ python:
   - "3.6"
 install:
   - pip install pandas
-  - pip install sklearn
-  - pip install scipy
+  - pip install numpy
+  - pip install matplotlib
 script:
   - pytest
