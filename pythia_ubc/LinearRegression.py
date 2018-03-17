@@ -11,8 +11,10 @@
 # Usage: 
 
 ## Imports
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import numpy.random as random
 
 ## The LinearRegression class
 class LinearRegression:
@@ -109,6 +111,9 @@ class LinearRegression:
         # Get fitted values and residuals	
         residuals = self.residuals	
         fitted = self.fitted	
+        
+        residuals = residuals.flatten()
+        fitted = fitted.flatten()
         	
         # Fitted vs Residuals	
         plt.figure(figsize=(10,6))	
@@ -129,6 +134,7 @@ class LinearRegression:
 	
         # Fit Normal Trendline.  	
         fit = np.polyfit(ndist, res, 1)	
+        fit = fit.tolist()
         func = np.poly1d(fit)	
         trendline_y = func(ndist)	
 	
