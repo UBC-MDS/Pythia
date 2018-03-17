@@ -59,7 +59,7 @@ Values: a dataframe containing
 Usage:
 
 ```
-import pythia_ubc
+from pythia.eda import eda
 X = pd.DataFrame({'ones': np.ones(10),
                   'X1': rand.normal(size=10),
                   'X2': rand.normal(size=10),
@@ -94,7 +94,7 @@ Values: a class method containing:
 Usage:
 
 ```
-import pythia_ubc
+from pythia.LinearRegression import LinearRegression
 X = pd.DataFrame({'X1': np.random.normal(size=10),
                   'X2': np.random.normal(size=10),
                   'X3': np.random.normal(size=10)})
@@ -123,7 +123,7 @@ Value:
 Usage:
 
 ```
-import pythia_ubc
-lm = LinearRegression(X, y)
+from pythia.LinearRegression import LinearRegression
+lm = LinearRegression.plot_residuals(X, y)
 plot_residuals(lm)
 ```
