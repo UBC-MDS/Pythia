@@ -4,7 +4,7 @@ from codecs import open
 from os import path
 
 setup(
-    name='pythia_ubc',
+    name='pythia',
     version='0.1dev',
     description='This package is a tool to perform linear regression',
     url='https://github.com/UBC-MDS/Pythia',

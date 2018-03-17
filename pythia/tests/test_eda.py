@@ -4,7 +4,7 @@
 # This script test the summary function from eda.py.
 
 import pytest
-from pythia_ubc.eda import eda
+from pythia.eda import eda
 
 ## Packages
 import numpy as np
@@ -131,26 +131,42 @@ def test_eda():
     assert summary['max'][3] == X3_max, "maximum of explanatory variable X3 is wrong"
 
 
+## Test when the feature input is empty
 def test_eda2():
     # Data for the error case:
-    X = "aString"
+    X = pd.DataFrame()
     y = pd.DataFrame({'y': rand.normal(size=10)})
 
     try:
         eda(X, y)
-    except NameError:
+    except AssertionError:
         assert True
     else:
         assert False
 
+
+## Test when the response is empty
 def test_eda3():
     # Data for the error case:
     X = pd.DataFrame({'X1': rand.normal(size=10)})
-    y = "notDataframe"
+    y = []
 
     try:
         eda(X, y)
-    except NameError:
+    except AssertionError:
+        assert True
+    else:
+        assert False
+
+## Test when the response and the features don't have the same lengths
+def test_eda4():
+    # Data for the error case:
+    X = pd.DataFrame({'X1': rand.normal(size=10)})
+    y = rand.normal(size=8)
+
+    try:
+        eda(X, y)
+    except AssertionError:
         assert True
     else:
         assert False
