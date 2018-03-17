@@ -139,9 +139,9 @@ def test_eda2():
     try:
         eda(X, y)
     except NameError:
-        assert True
-    else:
         assert False
+    else:
+        assert True
 
 def test_eda3():
     # Data for the error case:
@@ -151,6 +151,6 @@ def test_eda3():
     try:
         eda(X, y)
     except NameError:
-        assert True
-    else:
         assert False
+    else:
+        assert True
