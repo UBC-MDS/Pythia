@@ -11,4 +11,4 @@ install:
   - 'pip install -U pytest'  
 # command to run tests
 script:
-  - cd pythia_ubc/tests && pytest
+  - cd pythia/tests && pytest
