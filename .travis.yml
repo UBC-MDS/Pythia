@@ -1,11 +1,14 @@
 language: python
 python:
-  - "3.3"
-  - "3.4"
-  - "3.5"
+  - "3.6"
 # command to install dependencies
+cache: pip3
 install:
-  - pip install git+https://github.com/UBC-MDS/Pythia.git
-  - pip install -U pytest
+  - 'pip install pandas'
+  - 'pip install numpy'
+  - 'pip install matplotlib'
+  - 'pip install git+https://github.com/UBC-MDS/Pythia.git@master'
+  - 'pip install -U pytest'  
 # command to run tests
-script: pytest
+script:
+  - cd pythia_ubc/tests && pytest
