@@ -9,7 +9,7 @@ from pythia.LinearRegression import LinearRegression
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import numpy.random as random
+import numpy.random as rand
 
 ### Test the plotting function for a continuous feature
 def test_plot_residuals():
@@ -25,15 +25,15 @@ def test_plot_residuals():
     # Fit a linear regression on the data
     model = LinearRegression(X, y)
     
-    plot = plot_residuals(model)
+    plot = model.plot_residuals()
     
     # Expected input
-    assert isinstance(model, pythia_ubc.LinearRegression) == True, "The model doesn't have the right type"
-    assert isinstance(model.fitted, pd.Series) == True, "The model's fitted values don't have the right type"
-    assert isinstance(model.residuals, pd.Series) == True, "The model's residuals don't have the right type"
+    assert isinstance(model, LinearRegression) == True, "The model doesn't have the right type"
+    assert isinstance(model.fitted, np.ndarray) == True, "The model's fitted values don't have the right type"
+    assert isinstance(model.residuals, np.ndarray) == True, "The model's residuals don't have the right type"
 
     # Expected output
-    assert isinstance(plot, pythia_ubc.LinearRegression.plot_residuals) == True, "The model doesn't have the right type"
+    #assert isinstance(plot, LinearRegression) == True, "The model doesn't have the right type"
     assert type(plot) == tuple, "The class is the wrong type"
     assert len(plot) == 2, "There are not enough outputs"
     assert type(plot[0]) == type(None), "The output is the wrong type"
