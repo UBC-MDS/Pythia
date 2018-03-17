@@ -11,7 +11,10 @@ sys.path.insert(0, os.path.abspath("../"))
 import pytest
 from pythia.LinearRegression import LinearRegression
 
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
+
 import pandas as pd
 import numpy as np
 import numpy.random as rand
