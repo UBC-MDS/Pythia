@@ -2,6 +2,10 @@
 # March 2018
 #
 # This script test the plot_residuals function from the LinearRegression.py script.
+
+import matplotlib
+matplotlib.use('Agg')
+
 import sys
 import os
 sys.path.insert(0, os.path.abspath("."))
@@ -11,9 +15,8 @@ sys.path.insert(0, os.path.abspath("../"))
 import pytest
 from pythia.LinearRegression import LinearRegression
 
-import matplotlib
+
 import matplotlib.pyplot as plt
-matplotlib.use('Agg')
 
 import pandas as pd
 import numpy as np
