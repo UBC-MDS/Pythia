@@ -10,5 +10,5 @@ install:
   - 'pip install git+https://github.com/UBC-MDS/Pythia.git@master'
   - 'pip install -U pytest'  
 # command to run tests
-script:
-  - cd pythia/tests && pytest
+before_script: cd pythia
+script: sbt pytest
