@@ -2,14 +2,10 @@ language: python
 python:
   - "3.6"
 before_install:
-  - cp backend: Agg .
+  - cp "backend: Agg" .
 install:
   - pip install pandas
   - pip install numpy
   - pip install matplotlib
-before_script: # configure a headless display to test plot generation
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
 script:
   - pytest

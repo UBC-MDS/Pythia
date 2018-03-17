@@ -5,6 +5,7 @@
 
 import matplotlib
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 import sys
 import os
@@ -16,7 +17,7 @@ import pytest
 from pythia.LinearRegression import LinearRegression
 
 
-import matplotlib.pyplot as plt
+
 
 import pandas as pd
 import numpy as np
