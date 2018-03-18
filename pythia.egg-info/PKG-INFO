@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pythia
-Version: 0.1.dev0
+Version: 1.0
 Summary: This package is a tool to perform linear regression
 Home-page: https://github.com/UBC-MDS/Pythia
 Author: MDS students: Maud Boucherit, Teddy Haley, Cem Sinan Ozturk
@@ -88,7 +88,7 @@ Description: # Pythia
         Usage:
         
         ```
-        import pythia_ubc
+        from pythia.eda import eda
         X = pd.DataFrame({'ones': np.ones(10),
                           'X1': rand.normal(size=10),
                           'X2': rand.normal(size=10),
@@ -123,7 +123,7 @@ Description: # Pythia
         Usage:
         
         ```
-        import pythia_ubc
+        from pythia.LinearRegression import LinearRegression
         X = pd.DataFrame({'X1': np.random.normal(size=10),
                           'X2': np.random.normal(size=10),
                           'X3': np.random.normal(size=10)})
@@ -152,8 +152,8 @@ Description: # Pythia
         Usage:
         
         ```
-        import pythia_ubc
-        lm = LinearRegression(X, y)
+        from pythia.LinearRegression import LinearRegression
+        lm = LinearRegression.plot_residuals(X, y)
         plot_residuals(lm)
         ```
         

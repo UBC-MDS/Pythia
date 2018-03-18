@@ -1,5 +1,8 @@
 setup.cfg
 setup.py
+pythia/LinearRegression.py
+pythia/__init__.py
+pythia/eda.py
 pythia.egg-info/PKG-INFO
 pythia.egg-info/SOURCES.txt
 pythia.egg-info/dependency_links.txt

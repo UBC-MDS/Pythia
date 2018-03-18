@@ -2,7 +2,6 @@
 # March 2018
 #
 # This script test the summary function from eda.py.
-
 import sys
 import os
 sys.path.insert(0, os.path.abspath("."))
