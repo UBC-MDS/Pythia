@@ -2,6 +2,11 @@
 # pip install git+https://github.com/UBC-MDS/Pythia.git
 
 # Import Pythia Package
+import sys
+import os
+sys.path.insert(0, os.path.abspath("."))
+sys.path.insert(0, os.path.abspath("../"))
+
 from pythia.LinearRegression import LinearRegression
 from pythia.eda import eda
 
@@ -24,7 +29,7 @@ def test_integration():
     # LinearRegression Function is a class.
     # Fit a linear regression on the data
     model = LinearRegression(X, y)
-    
+
     # Plot residuals is dependent on LinearRegression Function.
     plot = model.plot_residuals()
 

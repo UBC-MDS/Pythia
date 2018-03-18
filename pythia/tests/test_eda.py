@@ -2,6 +2,10 @@
 # March 2018
 #
 # This script test the summary function from eda.py.
+import sys
+import os
+sys.path.insert(0, os.path.abspath("."))
+sys.path.insert(0, os.path.abspath("../"))
 
 import pytest
 from pythia.eda import eda
@@ -89,46 +93,46 @@ def test_eda():
     # Test the content of the output
 
     # mean values:
-    assert summary['mean'][0] == y_mean[0], "Mean of response(y) is wrong"
-    assert summary['mean'][1] == X1_mean, "Mean of explanatory variable X1 is wrong"
-    assert summary['mean'][2] == X2_mean, "Mean of explanatory variable X2 is wrong"
-    assert summary['mean'][3] == X3_mean, "Mean of explanatory variable X3 is wrong"
+    assert round(summary['mean'][0],5) == round(y_mean[0],5), "Mean of response(y) is wrong"
+    assert round(summary['mean'][1],5) == round(X1_mean,5), "Mean of explanatory variable X1 is wrong"
+    assert round(summary['mean'][2],5) == round(X2_mean,5), "Mean of explanatory variable X2 is wrong"
+    assert round(summary['mean'][3],5) == round(X3_mean,5), "Mean of explanatory variable X3 is wrong"
 
     # variance values:
-    assert summary.variance[0] == y_var[0], "variance of response(y) is wrong"
-    assert summary.variance[1] == X1_var, "variance of explanatory variable X1 is wrong"
-    assert summary.variance[2] == X2_var, "variance of explanatory variable X2 is wrong"
-    assert summary.variance[3] == X3_var, "variance of explanatory variable X3 is wrong"
+    assert round(summary.variance[0],5) == round(y_var[0],5), "variance of response(y) is wrong"
+    assert round(summary.variance[1],5) == round(X1_var,5), "variance of explanatory variable X1 is wrong"
+    assert round(summary.variance[2],5) == round(X2_var,5), "variance of explanatory variable X2 is wrong"
+    assert round(summary.variance[3],5) == round(X3_var,5), "variance of explanatory variable X3 is wrong"
 
     # min (Oth percentile) values:
-    assert summary['min'][0] == y_min, "minimum of response(y) is wrong"
-    assert summary['min'][1] == X1_min, "minimum of explanatory variable X1 is wrong"
-    assert summary['min'][2] == X2_min, "minimum of explanatory variable X2 is wrong"
-    assert summary['min'][3] == X3_min, "minimum of explanatory variable X3 is wrong"
+    assert round(summary['min'][0],5) == round(y_min,5), "minimum of response(y) is wrong"
+    assert round(summary['min'][1],5) == round(X1_min,5), "minimum of explanatory variable X1 is wrong"
+    assert round(summary['min'][2],5) == round(X2_min,5), "minimum of explanatory variable X2 is wrong"
+    assert round(summary['min'][3],5) == round(X3_min,5), "minimum of explanatory variable X3 is wrong"
 
     # 25th percentile values:
-    assert summary.quantile25[0] == y_quantile25, "25th quantile of response(y) is wrong"
-    assert summary.quantile25[1] == X1_quantile25, "25th quantile of explanatory variable X1 is wrong"
-    assert summary.quantile25[2] == X2_quantile25, "25th quantile of explanatory variable X2 is wrong"
-    assert summary.quantile25[3] == X3_quantile25, "25th quantile of explanatory variable X3 is wrong"
+    assert round(summary.quantile25[0],5) == round(y_quantile25,5), "25th quantile of response(y) is wrong"
+    assert round(summary.quantile25[1],5) == round(X1_quantile25,5), "25th quantile of explanatory variable X1 is wrong"
+    assert round(summary.quantile25[2],5) == round(X2_quantile25,5), "25th quantile of explanatory variable X2 is wrong"
+    assert round(summary.quantile25[3],5) == round(X3_quantile25,5), "25th quantile of explanatory variable X3 is wrong"
 
     # 50th percentile values:
-    assert summary.quantile50[0] == y_quantile50, "50th quantile of response(y) is wrong"
-    assert summary.quantile50[1] == X1_quantile50, "50th quantile of explanatory variable X1 is wrong"
-    assert summary.quantile50[2] == X2_quantile50, "50th quantile of explanatory variable X2 is wrong"
-    assert summary.quantile50[3] == X3_quantile50, "50th quantile of explanatory variable X3 is wrong"
+    assert round(summary.quantile50[0],5) == round(y_quantile50,5), "50th quantile of response(y) is wrong"
+    assert round(summary.quantile50[1],5) == round(X1_quantile50,5), "50th quantile of explanatory variable X1 is wrong"
+    assert round(summary.quantile50[2],5) == round(X2_quantile50,5), "50th quantile of explanatory variable X2 is wrong"
+    assert round(summary.quantile50[3],5) == round(X3_quantile50,5), "50th quantile of explanatory variable X3 is wrong"
 
     # 75th percentile values:
-    assert summary.quantile75[0] == y_quantile75, "75th quantile of response(y) is wrong"
-    assert summary.quantile75[1] == X1_quantile75, "75th quantile of explanatory variable X1 is wrong"
-    assert summary.quantile75[2] == X2_quantile75, "75th quantile of explanatory variable X2 is wrong"
-    assert summary.quantile75[3] == X3_quantile75, "75th quantile of explanatory variable X3 is wrong"
+    assert round(summary.quantile75[0],5) == round(y_quantile75,5), "75th quantile of response(y) is wrong"
+    assert round(summary.quantile75[1],5) == round(X1_quantile75,5), "75th quantile of explanatory variable X1 is wrong"
+    assert round(summary.quantile75[2],5) == round(X2_quantile75,5), "75th quantile of explanatory variable X2 is wrong"
+    assert round(summary.quantile75[3],5) == round(X3_quantile75,5), "75th quantile of explanatory variable X3 is wrong"
 
     # max (10Oth percentile) values:
-    assert summary['max'][0] == y_max, "maximum of response(y) is wrong"
-    assert summary['max'][1] == X1_max, "maximum of explanatory variable X1 is wrong"
-    assert summary['max'][2] == X2_max, "maximum of explanatory variable X2 is wrong"
-    assert summary['max'][3] == X3_max, "maximum of explanatory variable X3 is wrong"
+    assert round(summary['max'][0],5) == round(y_max,5), "maximum of response(y) is wrong"
+    assert round(summary['max'][1],5) == round(X1_max,5), "maximum of explanatory variable X1 is wrong"
+    assert round(summary['max'][2],5) == round(X2_max,5), "maximum of explanatory variable X2 is wrong"
+    assert round(summary['max'][3],5) == round(X3_max,5), "maximum of explanatory variable X3 is wrong"
 
 
 ## Test when the feature input is empty
